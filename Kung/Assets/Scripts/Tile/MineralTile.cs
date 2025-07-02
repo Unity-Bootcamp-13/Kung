@@ -7,7 +7,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
-
 public class MineralTile : MonoBehaviour
 {
     [Header("드래그 앤 드롭 해")]
@@ -22,11 +21,12 @@ public class MineralTile : MonoBehaviour
     [SerializeField] private float repeatCycle;
 
     [SerializeField] private Inventory _inventory;
-    public event Action<CustomOreTile> OnOreCollected;
+    UserInventoryService _userInventorySpublvice;
 
     private Camera mainCamera;
     private HashSet<Vector3Int> removedCells = new HashSet<Vector3Int>();
 
+    [SerializeField] private InventoryServiceLocatorSO _inventoryServiceLocator;
     private void Start()
     {
         mainCamera = Camera.main;
@@ -34,7 +34,10 @@ public class MineralTile : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (_inventory.isFull) return;
+        if (_inventoryServiceLocator.Service.Items.Count >= 25)
+        {
+            return;
+        }
 
         Vector3Int cellPos = mineralTilemap.WorldToCell(collision.transform.position);
         Vector3 tilePos = mineralTilemap.CellToWorld(cellPos) + Vector3.up * 0.3f;
@@ -46,8 +49,8 @@ public class MineralTile : MonoBehaviour
         if (tile is CustomOreTile customTile)
         {
             StartCoroutine(ExprotPrice(customTile.price, tilePos));
-            OnOreCollected?.Invoke(customTile); // 인벤토리 UI에 직접 접근하지않고 이벤트를 발생시킴
             mineralTilemap.SetTile(cellPos, null);
+            _inventoryServiceLocator.Service.AcquireItem(customTile.id);
             removedCells.Add(cellPos);
         }
     }

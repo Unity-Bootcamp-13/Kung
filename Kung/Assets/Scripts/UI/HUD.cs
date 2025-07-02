@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using TMPro;
 using Unity.VisualScripting;
@@ -13,6 +14,16 @@ public class UI : MonoBehaviour
     public Image airRedImage;
     public Image airNeedle;
     public PlayerHealth playerHealth;
+
+    public Transform enterTarget;
+    [SerializeField] private InventoryUI _inventoryUI;
+
+    private float _UIspeed = 0.5f;
+    public void OnClickInventoryButton()
+    {
+        _inventoryUI.transform.DOLocalMove(enterTarget.localPosition, _UIspeed);
+        _inventoryUI.Refresh();
+    }
 
     private void Update()
     {
