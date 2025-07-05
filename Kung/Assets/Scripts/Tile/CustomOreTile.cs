@@ -16,7 +16,7 @@ public class CustomOreTile : Tile
         Topaz,
         Emerald,
         Diamond,
-        Rock
+        Rock,
     }
     public OreType oreType;
     public int price;

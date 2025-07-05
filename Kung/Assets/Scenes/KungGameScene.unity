@@ -4209,7 +4209,7 @@ MonoBehaviour:
   _inventoryServiceLocator: {fileID: 11400000, guid: 9e305352b541900459714187f962477e, type: 2}
   _inventoryRepositoryLocator: {fileID: 11400000, guid: 6066df244f63c054987255406f157c4f, type: 2}
   _inventoryItemServiceLocator: {fileID: 11400000, guid: c0e7431e0933d3b4da50bc33bd4bc5d6, type: 2}
-  _shortCutServiceLocator: {fileID: 0}
+  _shortCutServiceLocator: {fileID: 11400000, guid: 60f34f62b51a8434b924e38f0bb70ccf, type: 2}
 --- !u!1 &642223360
 GameObject:
   m_ObjectHideFlags: 0
@@ -6865,10 +6865,11 @@ MonoBehaviour:
   backGroundTIleMap: {fileID: 7722810659767422271, guid: fda6f51d41f7b354fb8058867be53147, type: 3}
   frontMiniMapTilemap: {fileID: 2309226482527555018, guid: 1fad8ea99ff49bd449709ac01c55a7ba, type: 3}
   backMiniMapTilemap: {fileID: 2303514913464902789, guid: 223914b5c1adfff42a88c5f136c28f5d, type: 3}
-  _drilling: {fileID: 1513979809}
   mineralTile: {fileID: 11400000, guid: e136ee3231310bd46bdb084291014996, type: 2}
-  width: 60
-  height: 666
+  _drilling: {fileID: 1513979809}
+  brokenTileMapInstance: {fileID: 0}
+  frontMiniMapInstance: {fileID: 0}
+  baseHp: 10
 --- !u!4 &1010459573
 Transform:
   m_ObjectHideFlags: 0
@@ -29539,6 +29540,7 @@ MonoBehaviour:
   drillCoolTime: 0.1
   _brokenableTilemap: {fileID: 0}
   _rockTilemap: {fileID: 4170200343735213604}
+  tileManager: {fileID: 1010459572}
   currentDirectionState: 3
   isDrilling: 0
 --- !u!114 &1513979810
@@ -29648,7 +29650,7 @@ MonoBehaviour:
   movementSpeed: 0
   boosterSpeed: 0
   defense: 0
-  drillDamage: 0
+  drillDamage: 30
   _airCapacity: 0
 --- !u!114 &1513979814
 MonoBehaviour:
@@ -34900,8 +34902,8 @@ MonoBehaviour:
   _bigBomb: {fileID: 3760667090193064818, guid: 84ad226288774f144b665f514c7af2ba, type: 3}
   _dynamite: {fileID: 7076675715968345461, guid: fcc32e048211ba647812d437aafbdd44, type: 3}
   _rockTile: {fileID: 4170200343735213604}
-  _shortCutServiceLocator: {fileID: 0}
-  _itemServiceLocator: {fileID: 0}
+  _shortCutServiceLocator: {fileID: 11400000, guid: 60f34f62b51a8434b924e38f0bb70ccf, type: 2}
+  _itemServiceLocator: {fileID: 11400000, guid: c0e7431e0933d3b4da50bc33bd4bc5d6, type: 2}
 --- !u!224 &1994795649355190380
 RectTransform:
   m_ObjectHideFlags: 0
