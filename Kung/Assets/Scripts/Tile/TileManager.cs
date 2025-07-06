@@ -13,9 +13,13 @@ public class TileManager : MonoBehaviour
 
     [SerializeField] private Drilling _drilling;
 
-
+    [SerializeField] private GameObject Level1;
+    [SerializeField] private GameObject Level2;
     public Tilemap brokenTileMapInstance;
     public Tilemap frontMiniMapInstance;
+
+    float firstThreshold;
+    float secondThreshold;
 
     private int _width;
     private int _height;
@@ -32,6 +36,10 @@ public class TileManager : MonoBehaviour
         brokenTileMapInstance = Instantiate(brokenTileMap, par).GetComponent<Tilemap>();
         frontMiniMapInstance = Instantiate(frontMiniMapTilemap, par).GetComponent<Tilemap>();
         tileArrayInit();
+        GameObject lv1 = Instantiate(Level1, new Vector2(0, firstThreshold * 0.45f), Quaternion.identity);
+        GameObject lv2 = Instantiate(Level2, new Vector2(0, firstThreshold * 0.75f), Quaternion.identity);
+        lv1.GetComponent<Transform>().localScale = new Vector3(_width, _height / 3) * 0.3f;
+        lv2.GetComponent<Transform>().localScale = new Vector3(_width, _height / 3) * 0.3f ;
 
     }
 
@@ -45,8 +53,8 @@ public class TileManager : MonoBehaviour
         _offsetX = -bounds.xMin;
         _offsetY = -bounds.yMin;
 
-        float firstThreshold = bounds.yMax - (_height / 3f);      // 위에서 1/3
-        float secondThreshold = bounds.yMax - (_height * 2f / 3f); // 위에서 2/3
+        firstThreshold = bounds.yMax - (_height / 3f);      // 위에서 1/3
+        secondThreshold = bounds.yMax - (_height * 2f / 3f); // 위에서 2/3
 
         for (int x = bounds.xMin; x < bounds.xMax; x++)
         {
