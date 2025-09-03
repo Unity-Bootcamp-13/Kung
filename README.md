@@ -10,7 +10,7 @@ ___
 + Docs: 문서 수정 (ex. README 수정)
 + Refactor: 코드 리팩토링 (기능 변경 없이 코드 구조 개선)
 + Style: 스타일 관련 수정 (코드 포맷팅, 세미콜론 누락 등 코드 로직 변경 없는 경우)
-+ Chore: 빌드 업무 수정, 패키지 매니저 설정, .gitignore 등 잡다한 일ㄹ
++ Chore: 빌드 업무 수정, 패키지 매니저 설정, .gitignore 등 잡다한 일
 + Test: 테스트 코드 추가 및 수정
 + Perf: 성능 개선 (ex. 반복문 최적화)
 + Build: 빌드 관련 파일 수정 (ex. webpack, gradle 설정 등)
